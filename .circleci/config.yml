@@ -11,7 +11,29 @@ jobs:
     steps:
       - checkout:
           path: ~/kouchbento
-      - ruby/install-deps
+      - run: bundle install --no-deployment
+
+  rubocop:
+    docker:
+      - image: circleci/ruby:2.7
+      - image: circleci/mysql:5.5
+        environment:
+          MYSQL_PASSWORD: password
+          MYSQL_DATABASE: myapp_test
+          MYSQL_USER: root
+    environment:
+      BUNDLE_JOBS: "3"
+      BUNDLE_RETRY: "3"
+      APP_DATABASE_HOST: "127.0.0.1"
+      RAILS_ENV: rubocop
+    working_directory: ~/kouch-food
+    steps:
+        - checkout
+        - run: gem install bundler:1.16.6
+        - run: bundle install
+        - run:
+            name: Echo Test
+            command: bundle exec rubocop
 
   rspec:
     docker:
@@ -74,9 +96,11 @@ workflows:
   circleci:
     jobs:
       - build
+      - rubocop
       - rspec
       - deploy:
           requires:
             - build
+            - rubocop
             - rspec
     
