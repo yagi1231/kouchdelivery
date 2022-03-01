@@ -24,7 +24,7 @@
             <div class="box">
               <textarea id="textarea" name="reservation[order]" class="textarea" value="1" cols="50" style="width:80%;height:250px;"><%=@reservation.order%></textarea>
                <p>省略ボタン</p>
-               <input type="button" id="order-btn" value="1文字消す" onclick="textcan()">
+               <input type="button" id="order-btn" value="一つ文字消す" onclick="textcan()">
                <input type="button" id="order-btn" value="ヒレ丼-780" onclick="menu(value)">
                <input type="button" id="order-btn" value="ステーキ-680" onclick="menu(value)">
                <input type="button" id="order-btn" value="ロース-680" onclick="menu(value)">
@@ -56,7 +56,7 @@
         <tr>
           <th><%= f.label :price ,"金額" %></th>
           <td>
-            <input type="button" value="金額を1つ戻す" onclick="prican()">
+            <input type="button" value="金額を一つ戻す" onclick="prican()">
             <input type="text" id="pri" name="reservation[pri]" value="<%=@reservation.pri%>">
             <input type="button"  value="=" onclick="sum()">
             <input size="20" type="text" id="sumpri" name="reservation[price]" value="<%=@reservation.price%>">円
