@@ -29,8 +29,12 @@ jobs:
     working_directory: ~/kouch-food
     steps:
         - checkout
-        - run: gem install bundler:1.16.6
-        - run: bundle install
+        - run: 
+            name: Install bundler:1.16.6
+            command: gem install bundler:1.16.6
+        - run: 
+            name: gem installation
+            command: bundle install
         - run:
             name: Echo Test
             command: bundle exec rubocop
@@ -46,7 +50,6 @@ jobs:
     environment:
       BUNDLE_JOBS: "3"
       BUNDLE_RETRY: "3"
-      APP_DATABASE_HOST: "%"
       RAILS_ENV: test
     working_directory: ~/kouchbento
     steps:
@@ -55,14 +58,18 @@ jobs:
       - run:
          command: chromedriver
          background: true
-      - run: bundle install --no-deployment
+      - run: 
+          name: Get the necessary gem(s)
+          command: bundle install --no-deployment
       - run:
           name: Database setup
           command: bundle exec rails db:migrate
       - run:
           name: yarn Install
           command: yarn install --ignore-engines
-      - run: bundle exec bin/webpack
+      - run: 
+          name: Installing webpack
+          command: bundle exec bin/webpack
       - run:
           name: test
           command: bundle exec rspec
