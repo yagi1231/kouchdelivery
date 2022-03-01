@@ -1,0 +1,150 @@
+ <h3 class="header-title">新規注文</h3>
+ <%= render "shared/error", obj: @reservation %>
+ 
+    <%= form_for @reservation do |f| %>
+      <table>
+        <tr>
+          <th><%= f.label :name ,"名前" %></th>
+          <td><%= f.text_field :name, placeholder:"カタカナ入力"%>様</td>
+        </tr>
+ 
+        <tr>
+          <th><%= f.label :address ,"住所" %></th>
+          <td><%= f.text_field :address %></td>
+        </tr>
+
+         <tr>
+          <th><%= f.label :telnum ,"電話番号" %></th>
+          <td><input type="tel" inputmode="numeric" pattern="\d*" name="reservation[telnum]"value="<%=@reservation.telnum%>"></td>
+        </tr>
+ 
+        <tr>
+          <th><%= f.label :order ,"注文内容" %></th>
+          <td>
+            <div class="box">
+              <textarea id="textarea" name="reservation[order]" class="textarea" value="1" cols="50" style="width:80%;height:250px;"><%=@reservation.order%></textarea>
+               <p>省略ボタン</p>
+               <input type="button" id="order-btn" value="1文字消す" onclick="textcan()">
+               <input type="button" id="order-btn" value="ヒレ丼-780" onclick="menu(value)">
+               <input type="button" id="order-btn" value="ステーキ-680" onclick="menu(value)">
+               <input type="button" id="order-btn" value="ロース-680" onclick="menu(value)">
+               <input type="button" id="order-btn" value="しょうが-680" onclick="menu(value)">
+               <input type="button" id="order-btn" value="ヒレ-680" onclick="menu(value)">
+               <input type="button" id="order-btn" value="ロースヒレ-780" onclick="menu(value)">
+               <input type="button" id="order-btn" value="肉じゃが-680" onclick="menu(value)">
+               <input type="button" id="order-btn" value="なす豚-600" onclick="menu(value)">
+               <input type="button" id="order-btn" value="トリステーキ-600" onclick="menu(value)">
+               <input type="button" id="order-btn" value="唐揚げ-550" onclick="menu(value)">
+               <input type="button" id="order-btn" value="なんばん-550" onclick="menu(value)">
+               <input type="button" id="order-btn" value="マグロカツ-600" onclick="menu(value)">
+               <input type="button" id="order-btn" value="チーズみぞれ-600" onclick="menu(value)">
+               <input type="button" id="order-btn" value="野菜炒め-600" onclick="menu(value)">
+               <input type="button" id="order-btn" value="カレー-550" onclick="menu(value)">
+               <input type="button" id="order-btn" value="ミルクカレー-1000" onclick="menu(value)">
+               <input type="button" id="order-btn" value="豚汁-190" onclick="menu(value)">
+               <input type="button" id="order-btn" value="サバおひたし-250" onclick="menu(value)">
+               <input type="button" id="order-btn" value="サラダ-150" onclick="menu(value)">
+               <input type="button" id="order-btn" value="揚げ出しなす-150" onclick="menu(value)">
+               <input type="button" id="order-btn" value="ご飯-190" onclick="menu(value)">
+               <input type="button" id="order-btn" value="オムライス-250" onclick="menu(value)">
+               <input type="button" id="order-btn" value="すき焼き-680" onclick="menu(value)">
+               <input type="button" id="order-btn" value="キムチチゲ-680" onclick="menu(value)">
+            </div> 
+          </td>
+        </tr>
+
+        <tr>
+          <th><%= f.label :price ,"金額" %></th>
+          <td>
+            <input type="button" value="金額を1つ戻す" onclick="prican()">
+            <input type="text" id="pri" name="reservation[pri]" value="<%=@reservation.pri%>">
+            <input type="button"  value="=" onclick="sum()">
+            <input size="20" type="text" id="sumpri" name="reservation[price]" value="<%=@reservation.price%>">円
+          </td>
+        </tr>
+
+        <tr>
+          <th><%= f.label :time ,"日付-時間" %></th>
+          <td><input type="date" name="reservation[time]" value="<%=Date.today%>"> -
+            <input type="text" name="reservation[backtime]" min="11:00" max="21:00" list="time-list" value="<%=@reservation.backtime%>">
+            <datalist id="time-list">
+              <option value="11:00-11:30"></option>
+              <option value="11:30">前後</option>
+              <option value="11:30-12:00"></option>
+              <option value="12:00">前後</option>
+              <option value="12:00-12:30"></option>
+              <option value="12:30">前後</option>
+              <option value="12:30-13:00"></option>
+              <option value="13:00">前後</option>
+              <option value="13:00-13:30"></option>
+              <option value="13:30">前後</option>
+              <option value="13:30-14:00"></option>
+              <option value="14:00">前後</option>
+              <option value="14:00-14:30"></option>
+              <option value="14:30">前後</option>
+              <option value="14:30-15:00"></option>
+              <option value="15:00">前後</option>
+              <option value="15:00-15:30"></option>
+              <option value="15:30">前後</option>
+              <option value="15:30-16:00"></option>
+              <option value="16:00">前後</option>
+              <option value="16:00-16:30"></option>
+              <option value="16:30">前後</option>
+              <option value="16:30-17:00"></option>
+              <option value="17:00">前後</option>
+              <option value="17:00-17:30"></option>
+              <option value="17:30">前後</option>
+              <option value="17:30-18:00"></option>
+              <option value="18:00">前後</option>
+              <option value="18:00-18:30"></option>
+              <option value="18:30">前後</option>
+              <option value="18:30-19:00"></option>
+              <option value="19:00">前後</option>
+              <option value="19:00-19:30"></option>
+              <option value="19:30">前後</option>
+              <option value="19:30-20:00"></option>
+              <option value="20:00">前後</option>
+              <option value="20:00-20:30"></option>
+              <option value="20:30">前後</option>
+              <option value="20:30-21:00"></option>
+              <option value="21:00">前後</option>      
+            </datalist>
+          </td>
+        </tr>
+
+        <tr>
+          <th><%= f.label :category ,"カテゴリー（一つのみ選択）" %></th>
+          <td><input type="checkbox" value="KOUCH" name="reservation[category]" class="box"　value="<%=@reservation.category%>">
+          <label for="coding">KOUCH</label><br>
+          <input type="checkbox" value="大戸屋" name="reservation[category]" class="box">
+          <label for="coding">大戸屋</label><br>
+          <input type="checkbox" value="コラボ" name="reservation[category]" class="box">
+          <label for="coding">コラボ</label></td>
+        </tr>
+
+        <tr>
+          <th><%= f.label :category ,"企業or民家（一つのみ選択）" %></th>
+          <td><input type="checkbox" value="企業" name="reservation[categoryname]" class="box" value="<%=@reservation.categoryname%>">
+          <label for="coding">企業</label><br>
+          <input type="checkbox" value="民家" name="reservation[categoryname]" class="box">
+          <label for="coding">民家</label><br>
+        </tr>
+        
+         <tr>
+          <th><%= f.label :remarks ,"備考" %></th>
+          <td><input type="text" name="reservation[remarks]" placeholder="(例)マップでは出てこない" style="width:80%;height:100px;" value ="<%=@reservation.remarks%>"></td>
+        </tr>
+      
+        <tr>
+          <th><%= f.label '画像' %></th>
+          <td><%= f.file_field :image %></td>
+        </tr>
+      </table>
+ 
+      <div>
+        <ul>
+          <li><%= f.submit "登録完了する", class: 'submit user',data:{confirm:"この情報で登録しますか？"}%></li>
+          <li><%= link_to "予約一覧表に戻る", :reservations, class: 'top user btn btn-border-shadow btn-border-shadow--color2' %></li>
+        </ul>
+      </div>
+    <% end %>

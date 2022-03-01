@@ -1,0 +1,19 @@
+current directory: /Users/aoyagiju/Desktop/kouchdelivery/vendor/bundle/ruby/2.7.0/gems/byebug-11.1.3/ext/byebug
+/Users/aoyagiju/.rbenv/versions/2.7.3/bin/ruby -I /Users/aoyagiju/.rbenv/versions/2.7.3/lib/ruby/2.7.0 -r ./siteconf20220301-70638-1y746t4.rb extconf.rb
+creating Makefile
+
+current directory: /Users/aoyagiju/Desktop/kouchdelivery/vendor/bundle/ruby/2.7.0/gems/byebug-11.1.3/ext/byebug
+make "DESTDIR=" clean
+
+current directory: /Users/aoyagiju/Desktop/kouchdelivery/vendor/bundle/ruby/2.7.0/gems/byebug-11.1.3/ext/byebug
+make "DESTDIR="
+compiling breakpoint.c
+compiling byebug.c
+compiling context.c
+compiling locker.c
+compiling threads.c
+linking shared-object byebug/byebug.bundle
+
+current directory: /Users/aoyagiju/Desktop/kouchdelivery/vendor/bundle/ruby/2.7.0/gems/byebug-11.1.3/ext/byebug
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 byebug.bundle ./.gem.20220301-70638-1m4oj36/byebug
