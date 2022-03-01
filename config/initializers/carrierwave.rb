@@ -10,7 +10,7 @@ CarrierWave.configure do |config|
       aws_secret_access_key: ENV['AWS_S3_SECRET_ACCESS_KEY'], 
       region:                'ap-northeast-1',                   
     }
-    config.fog_directory  = 'kouchfood'            
+    config.fog_directory  = 'kouchdelivery'            
     config.fog_public     = false                                              
     config.fog_attributes = { cache_control: "public, max-age=#{365.days.to_i}" } 
   end
