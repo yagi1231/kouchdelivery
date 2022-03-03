@@ -7,10 +7,10 @@ jobs:
   build:
     docker:
       - image: circleci/ruby:2.7
-    working_directory: ~/kouchbento
+    working_directory: ~/kouchdelivery
     steps:
       - checkout:
-          path: ~/kouchbento
+          path: ~/kouchdelivery
       - run: bundle install --no-deployment
 
   rubocop:
@@ -24,9 +24,8 @@ jobs:
     environment:
       BUNDLE_JOBS: "3"
       BUNDLE_RETRY: "3"
-      APP_DATABASE_HOST: "127.0.0.1"
       RAILS_ENV: rubocop
-    working_directory: ~/kouch-food
+    working_directory: ~/kouchdelivery
     steps:
         - checkout
         - run: 
