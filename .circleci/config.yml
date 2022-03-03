@@ -29,12 +29,6 @@ jobs:
     working_directory: ~/kouch-food
     steps:
         - checkout
-        - run: 
-            name: Install bundler:1.16.6
-            command: gem install bundler:1.16.6
-        - run: 
-            name: gem installation
-            command: bundle install
         - run:
             name: Echo Test
             command: bundle exec rubocop
