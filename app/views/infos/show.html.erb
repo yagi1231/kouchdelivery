@@ -10,7 +10,7 @@
         <td><input name="address"style="border:solid 0px"value="<%=@info.address%>"readonly></td>
       </tr>
        <tr>
-        <th>電話番号<br>(クリックしてして通話可能)</th>
+        <th>電話番号</th>
         <td><input name="telnum"style="border:solid 0px"value="<%=@info.telnum%>"readonly></td>
       </tr>
        <tr>
@@ -33,7 +33,7 @@
 
   <div>
     <ul>
-     　<li><%= link_to "削除", :info, method: :delete, data:{confirm:"本当に削除しますか？"}, class: 'edit user btn btn-border-shadow btn-border-shadow--color2'%></li>
+      <li><%= link_to "削除", :info, method: :delete, data:{confirm:"本当に削除しますか？"}, class: 'edit user btn btn-border-shadow btn-border-shadow--color2'%></li>
       <li><%= link_to '編集', :edit_info, class: 'edit user btn btn-border-shadow btn-border-shadow--color2'%></li>
       <li><%= link_to "お客様情報一覧に戻る", :infos, class: 'top user btn btn-border-shadow btn-border-shadow--color2' %></li>
     </ul>
