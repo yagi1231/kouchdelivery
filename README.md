@@ -75,8 +75,8 @@ CRUD機能
 ・rubocop  
 ・AWS     
 　•S3  
-・docker  
-・circleci
+・Docker/docker-compose  
+・CircleCi CI/CD
 
 
 # テスト
