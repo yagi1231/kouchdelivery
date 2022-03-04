@@ -17,16 +17,6 @@
         <th>備考</th>
         <td><input name="remark"style="border:solid 0px;width:100%;text-align:center;"value="<%=@info.remark%>"readonly></td>
       </tr>
-      <tr>
-        <th>画像</th>
-        <td>
-          <% if @info.image? %>
-            <%= image_tag @info.image.url %>
-          <% else %>
-            <%= image_tag '/assets/default.png' %>
-          <% end %>
-        </td>
-      </tr>
     </table>
     <input type="submit" value="新規注文画面へ"class="submit user" >
   <% end %>
