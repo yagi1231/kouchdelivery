@@ -98,7 +98,10 @@ RSpec.describe 'Reservationsytems', js: true, type: :system do
     sign_in(user)
     visit reservations_path
     click_on "新規注文"
-    expect(page).to have_content 'ヒレ丼-780'
+    click_on "KOUCHメニュー"
+    click_on "ヒレ丼   -780"
+    expect(page).to eq "ヒレ丼"
+    expect(page).to eq "780+"
   end
 
   scenario "ハンバーガーメニュー確認"do
