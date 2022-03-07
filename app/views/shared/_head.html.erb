@@ -10,11 +10,6 @@
            <div id="nav-content">
              <p class="hambergermenu">メニュー一覧</p>
                <% if user_signed_in? %>
-               <h3 id="place"></h3>
-                 <div  id="now">
-                   <div id="weather"></div>
-                   <div id="forecast"></div>
-                 </div>
                  <%=link_to "予約一覧表", :reservations, class:'sidemenu topmenu btn btn-border-shadow btn-border-shadow--color2', style:"margin-top:200px;"%>
                  <%= link_to "ログアウト", destroy_user_session_path, method: :delete, data: {confirm: "ログアウトしますか？"},id: "logout_submit", class:'sidemenu topmenu btn btn-border-shadow btn-border-shadow--color2' %> 
                  <%=link_to "お客様情報一覧", :infos, class:'sidemenu topmenu btn btn-border-shadow btn-border-shadow--color2'%>
