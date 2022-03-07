@@ -33,6 +33,12 @@ td {
   margin:60px 20px 20px 0; 
 }
 
+
+.header-title {
+  font-size:36px;
+  margin:60px 20px 20px 0; 
+}
+
 .user {
   margin-top:30px;
 }
@@ -273,10 +279,6 @@ header {
   color:red;
 }
 
-input {
-  font-size:16px;
-}
-
 textarea {
   font-size:16px;
 }
@@ -291,4 +293,101 @@ textarea {
   font-size:14px;
   font-weight: 900;
   line-height:1.4em;
+}
+
+main .container {
+    margin: 0 auto;
+    max-width: 50px;
+}
+#place {
+    text-align: center;
+}
+#now {
+    margin: 0 auto;
+    max-width: 50px;
+    min-height: 50px;
+    float:left;
+}
+#now .icon img {
+    width: 50px;
+}
+#now .info p {
+    text-align: center;
+}
+#now .temp {
+    margin-left: 1rem;
+    background: url(../images/thermometer.svg) 0 0 no-repeat;
+    background-size: 24px 24px;
+}
+#forecast {
+    border-collapse: collapse;
+    margin: 2rem auto 0;
+    width: 315px;
+}
+#forecast th, #forecast td {
+    border-top: 1px solid #ccc;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+#forecast tr td:first-of-type {
+    border-left: 1px solid #ccc;
+}
+#forecast tr td:last-of-type {
+    border-right: 1px solid #ccc;
+    text-align: right;
+}
+#forecast tr:last-of-type {
+    border-bottom: 1px solid #ccc;
+}
+#forecast .icon {
+    width: 48px;
+    height:48px;
+}
+#forecast .icon img {
+    width: 30px;
+    height: 30px;
+}
+#forecast .info p {
+    margin: 0;
+    position: relative;
+    right:15px;
+}
+#forecast .temp {
+    margin-left: 1rem;
+    padding-left: 24px;
+    background: url(../images/thermometer.svg) 0 0 no-repeat;
+    background-size: 24px 24px;   
+}
+
+div.info {
+  text-align: center;
+  float: left;
+}
+
+div.icon {
+  margin-left:30px;
+}
+
+p#forecast{
+  width:10%;
+}
+
+p.description {
+  width:70px;
+}
+
+#weather {
+  float: left;
+}
+
+.time-weather {
+  position: relative;
+  left:15px;
+}
+
+/*　ローディングサイン　*/
+#now {
+    background-image: url(../images/loading.gif);
+    background-repeat: no-repeat;
+    background-position: center center;
 }

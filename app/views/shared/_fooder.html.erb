@@ -1,17 +1,13 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script>
     $(function(){
-    //印刷ボタンをクリックした時の処理
     $('.print-btn').on('click', function(){
     
-    //プリントしたいエリアの取得
     var printArea = document.getElementsByClassName("print-area");
     
-    //プリント用の要素「#print」を作成し、上で取得したprintAreaをその子要素に入れる。
     $('body').append('<div id="print" class="printBc"></div>');
     $(printArea).clone().appendTo('#print');
     
-    //この下に、以降の処理が入る。
     $('body > :not(#print)').addClass('print-off');
     window.print();
     $('#print').remove();
@@ -42,11 +38,99 @@
         document.getElementById('sumpri').value=eval(document.getElementById('pri').value.slice(0,-1));
     }
 
-    function textcan() {
-        textarea.val(textarea.val().slice(0,-1))
-    }
-
     function prican() {
         pri.val(pri.val().slice(0,-4));
+        textarea.val(textarea.val().slice(0,-7))
     }
-</script>           
+
+</script>
+
+<script>
+  $(document).ready(function(){
+      $('.shop-name').on('click',function(){
+          $(this).next().toggleClass('click-btn')
+      });
+  });
+</script>
+
+<script> 
+ 'use strict';
+
+// geolocation
+navigator.geolocation.getCurrentPosition(success, fail);
+
+function success(pos) {
+    ajaxRequest(pos.coords.latitude, pos.coords.longitude);
+}
+
+function fail(error) {
+    alert('位置情報の取得に失敗しました。エラーコード' + error.code);
+}
+
+// UTCをミリ秒に
+function utcToJSTime(utcTime) {
+    return utcTime * 1000;
+}
+
+// データ取得
+function ajaxRequest(lat, long) {
+    const url = 'https://api.openweathermap.org/data/2.5/forecast';
+    const appId = 'a8cdaf03cabca4b4743db5488df9e663';
+
+    $.ajax({
+        url: url,
+        data: {
+            appid: appId,
+            lat: lat,
+            lon: long,
+            units: 'metric',
+            lang: 'ja'
+        }
+    })
+    .done(function(data) {
+        // 都市名、国名
+        $('#place').text(data.city.name );
+
+        // 天気予報データ
+        data.list.forEach(function(forecast, index) {
+            const dateTime = new Date(utcToJSTime(forecast.dt));
+            const month = dateTime.getMonth() + 1;
+            const date = dateTime.getDate();
+            const hours = dateTime.getHours();
+            const min = String(dateTime.getMinutes()).padStart(2, '0');
+            const temperature = Math.round(forecast.main.temp);
+            const description = forecast.weather[0].description;
+            const iconPath = `images/${forecast.weather[0].icon}.svg`;
+            // 現在の天気とそれ以外で出力を変える
+            if(index === 0) {
+                const currentWeather = `
+                <div class="time-weather">
+                  ${month}/${date} ${hours}:${min}
+                </div>
+                <div class="icon" style="position:relative;right:10px;"><img src="${iconPath}"></div>
+                <div class="info">
+                    <p>
+                        <span class="description">現在:${description}</span>
+                        <span class="temp">${temperature}</span>°C
+                    </p>
+                </div>`;
+                $('#weather').html(currentWeather);
+            } else if(index<=3) {
+                const tableRow = `
+                    <div class="info">
+                    <div class="time-weather">
+                       ${hours}:${min}
+                    </div>
+                    <div class="icon"><img src="${iconPath}">
+                    <p class="description">${description}</p>
+                    <p class="temp">${temperature}°C</p></div>`;
+                $('#forecast').append(tableRow);
+            }
+        });
+    })
+    .fail(function() {
+        console.log('$.ajax failed!');
+    })
+}
+
+</script>

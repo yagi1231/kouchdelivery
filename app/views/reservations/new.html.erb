@@ -24,30 +24,39 @@
             <div class="box">
               <textarea id="textarea" name="reservation[order]" class="textarea" value="1" cols="50" style="width:80%;height:250px;"><%=@reservation.order%></textarea>
                <p>省略ボタン</p>
-               <input type="button" id="order-btn" value="一つ文字消す" onclick="textcan()">
-               <input type="button" id="order-btn" value="ヒレ丼-780" onclick="menu(value)">
-               <input type="button" id="order-btn" value="ステーキ-680" onclick="menu(value)">
-               <input type="button" id="order-btn" value="ロース-680" onclick="menu(value)">
-               <input type="button" id="order-btn" value="しょうが-680" onclick="menu(value)">
-               <input type="button" id="order-btn" value="ヒレ-680" onclick="menu(value)">
-               <input type="button" id="order-btn" value="ロースヒレ-780" onclick="menu(value)">
-               <input type="button" id="order-btn" value="肉じゃが-680" onclick="menu(value)">
-               <input type="button" id="order-btn" value="なす豚-600" onclick="menu(value)">
-               <input type="button" id="order-btn" value="トリステーキ-600" onclick="menu(value)">
-               <input type="button" id="order-btn" value="唐揚げ-550" onclick="menu(value)">
-               <input type="button" id="order-btn" value="なんばん-550" onclick="menu(value)">
-               <input type="button" id="order-btn" value="マグロカツ-600" onclick="menu(value)">
-               <input type="button" id="order-btn" value="チーズみぞれ-600" onclick="menu(value)">
-               <input type="button" id="order-btn" value="野菜炒め-600" onclick="menu(value)">
-               <input type="button" id="order-btn" value="カレー-550" onclick="menu(value)">
-               <input type="button" id="order-btn" value="豚汁-190" onclick="menu(value)">
-               <input type="button" id="order-btn" value="サバおひたし-250" onclick="menu(value)">
-               <input type="button" id="order-btn" value="サラダ-150" onclick="menu(value)">
-               <input type="button" id="order-btn" value="揚げ出しなす-150" onclick="menu(value)">
-               <input type="button" id="order-btn" value="ご飯-190" onclick="menu(value)">
-               <input type="button" id="order-btn" value="オムライス-250" onclick="menu(value)">
-               <input type="button" id="order-btn" value="すき焼き-680" onclick="menu(value)">
-               <input type="button" id="order-btn" value="キムチチゲ-680" onclick="menu(value)">
+               <div class="shop-name">KOUCHメニュー</div>
+               <div class="click-btn">
+                 <input type="button" id="order-btn" value="商品&金額を一つ戻す" onclick="prican()">
+                 <input type="button" id="order-btn" value="ヒレ丼   -780" onclick="menu(value)">
+                 <input type="button" id="order-btn" value="ステーキ  -680" onclick="menu(value)">
+                 <input type="button" id="order-btn" value="ロース   -680" onclick="menu(value)">
+                 <input type="button" id="order-btn" value="しょうが  -680" onclick="menu(value)">
+                 <input type="button" id="order-btn" value="ヒレ    -680" onclick="menu(value)">
+                 <input type="button" id="order-btn" value="ロースヒレ -780" onclick="menu(value)">
+                 <input type="button" id="order-btn" value="肉じゃが  -680" onclick="menu(value)">
+                 <input type="button" id="order-btn" value="なす豚   -600" onclick="menu(value)">
+                 <input type="button" id="order-btn" value="トリステーキ-600" onclick="menu(value)">
+                 <input type="button" id="order-btn" value="唐揚げ   -550" onclick="menu(value)">
+                 <input type="button" id="order-btn" value="なんばん  -550" onclick="menu(value)">
+                 <input type="button" id="order-btn" value="マグロカツ -600" onclick="menu(value)">
+                 <input type="button" id="order-btn" value="チーズみぞれ-600" onclick="menu(value)">
+                 <input type="button" id="order-btn" value="野菜炒め  -600" onclick="menu(value)">
+                 <input type="button" id="order-btn" value="カレー   -550" onclick="menu(value)">
+                 <input type="button" id="order-btn" value="豚汁    -190" onclick="menu(value)">
+                 <input type="button" id="order-btn" value="サバおひたし-250" onclick="menu(value)">
+                 <input type="button" id="order-btn" value="サラダ   -150" onclick="menu(value)">
+                 <input type="button" id="order-btn" value="揚げ出しなす-150" onclick="menu(value)">
+                 <input type="button" id="order-btn" value="ご飯    -190" onclick="menu(value)">
+                 <input type="button" id="order-btn" value="オムライス -250" onclick="menu(value)">
+                 <input type="button" id="order-btn" value="すき焼き  -680" onclick="menu(value)">
+                 <input type="button" id="order-btn" value="キムチチゲ -680" onclick="menu(value)">
+               </div>
+               <div class="shop-name">大戸屋メニュー</div>
+               <div class="click-btn">
+               <input type="button" id="order-btn" value="商品&金額を一つ戻す" onclick="prican()">
+               <input type="button" id="order-btn" value="トリクロ  -880" onclick="menu(value)">
+                 <input type="button" id="order-btn" value="スケソウ  -850" onclick="menu(value)">
+               </div>
             </div> 
           </td>
         </tr>
@@ -55,7 +64,7 @@
         <tr>
           <th><%= f.label :price ,"金額" %></th>
           <td>
-            <input type="button" value="金額を一つ戻す" onclick="prican()">
+            <input type="button" value="商品&金額を一つ戻す" onclick="prican()">
             <input type="text" id="pri" name="reservation[pri]" value="<%=@reservation.pri%>">
             <input type="button"  value="=" onclick="sum()">
             <input size="20" type="text" id="sumpri" name="reservation[price]" value="<%=@reservation.price%>">円
